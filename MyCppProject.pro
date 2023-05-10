@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     bullet.cpp \
     customgraphicsview.cpp \
+    dialog.cpp \
     game.cpp \
     gamepreparationinterface.cpp \
     gamesetting.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 HEADERS += \
     bullet.h \
     customgraphicsview.h \
+    dialog.h \
     game.h \
     gamepreparationinterface.h \
     gamesetting.h \
@@ -43,6 +45,7 @@ HEADERS += \
     weapon.h
 
 FORMS += \
+    dialog.ui \
     gamepreparationinterface.ui \
     menuinterface.ui \
     settinginterface.ui

@@ -1,6 +1,7 @@
 #include "gamepreparationinterface.h"
 #include "ui_gamepreparationinterface.h"
 #include"stackedwidgets.h"
+#include"dialog.h"
 GamePreparationInterface::GamePreparationInterface(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GamePreparationInterface)
@@ -78,4 +79,52 @@ void GamePreparationInterface::on_checkBox_4_stateChanged(int arg1)
 void GamePreparationInterface::on_pushButton_3_clicked()
 {
     game_setting->load_plate_test();
+}
+
+void GamePreparationInterface::on_pushButton_4_clicked()
+{
+    Dialog dialog(&game_setting->players[0].body_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_5_clicked()
+{
+    Dialog dialog(&game_setting->players[0].head_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_6_clicked()
+{
+    Dialog dialog(&game_setting->players[1].body_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_7_clicked()
+{
+    Dialog dialog(&game_setting->players[1].head_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_8_clicked()
+{
+    Dialog dialog(&game_setting->players[2].head_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_9_clicked()
+{
+    Dialog dialog(&game_setting->players[2].body_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_10_clicked()
+{
+    Dialog dialog(&game_setting->players[3].head_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_11_clicked()
+{
+    Dialog dialog(&game_setting->players[3].body_color,this);
+    dialog.exec();
 }
