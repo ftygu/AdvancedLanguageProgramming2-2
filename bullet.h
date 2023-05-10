@@ -7,9 +7,10 @@ class Bullet : public  QGraphicsItem
 public:
     Bullet();
     QColor color;
-    double x,y,vx;
+    double x,y,vx,vy;
     int height,width;
-    int bullet_impact_force;
+    int impact_force;
+    int existing_time;
     QPoint position;
     bool is_appear;
     void update();

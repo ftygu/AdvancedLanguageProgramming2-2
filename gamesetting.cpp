@@ -44,6 +44,17 @@ GameSetting::GameSetting() :
         players[1].bullets = player2_bullets;
         players[2].bullets = player3_bullets;
         players[3].bullets = player4_bullets;
+        player1_weapen.user = &players[0];
+        player2_weapen.user = &players[1];
+        player3_weapen.user = &players[2];
+        player4_weapen.user = &players[3];
+        players[0].weapen = &player1_weapen;
+        players[1].weapen = &player2_weapen;
+        players[2].weapen = &player3_weapen;
+        players[3].weapen = &player4_weapen;
+        for(int i = 0; i < 4; i++){
+            players[i].weapen->load_akm();
+        }
 }
 
 void GameSetting::load_plate_test()

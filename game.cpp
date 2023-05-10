@@ -29,9 +29,9 @@ void Game::update_game()
                     if(players[j].is_apperaed == true && players[j].bullets[k].is_appear == true){
                         if(players[i].collidesWithItem(&players[j].bullets[k])){
                             if(players[j].bullets[k].vx > 0)
-                            players[i].ax += players[j].bullets[k].bullet_impact_force;
+                            players[i].ax += players[j].bullets[k].impact_force;
                             else{
-                            players[i].ax -= players[j].bullets[k].bullet_impact_force;
+                            players[i].ax -= players[j].bullets[k].impact_force;
                             }
                              players[j].bullets[k].is_appear = false;
                         }

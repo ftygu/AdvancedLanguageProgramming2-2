@@ -31,16 +31,14 @@ public:
     void print_position();
     //射击
     Bullet *bullets;
-    int direction;
-    int shooting_interval;
-    int reload_time;
-    int now_time;
+    Weapon *weapen;
     //人物外观
     QColor head_color;
     QColor body_color;
     int timer;
     int abs_time;
     int face;
+    int adjusted_y;
 };
 
 #endif // PLAYER_H

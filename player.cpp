@@ -15,8 +15,6 @@ Player::Player() :
     have_jumped = false;
     want_down = false;
     want_down_counter = 0;
-    shooting_interval = 20;
-    now_time = 0;
     setZValue(1);
     //color_test
     head_color = Qt::blue;
@@ -33,7 +31,7 @@ void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     Q_UNUSED(option);  //标明该参数没有使用
     Q_UNUSED(widget);
-    int adjusted_y = -abs_time / 10;
+    painter->save();
     if(face == 1){
         painter->scale(1, 1);
         /*
@@ -110,6 +108,8 @@ void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
             painter->drawEllipse(adjusted_x + width * 6 / 10, position.y() - vy / 2 + height / 9+adjusted_y, width / 5, width / 5);
         }
     }
+    painter->restore();
+    weapen->paint(painter);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -216,32 +216,9 @@ void Player::update_game()
     }
 
     //射击的判断
-    if(key_pressed[2] == true){
-        direction = 0;
-    }
-    if(key_pressed[3] == true){
-        direction = 1;
-    }
-    if(key_pressed[4] == true && now_time <= 0){
-        for(int i = 0; i < 100; i++){
-            if(bullets[i].is_appear == false){
-                bullets[i].x = x;
-                bullets[i].y = y;
-                if(direction == 0){
-                    bullets[i].vx = -10;
-                }
-                else{
-                    bullets[i].vx = 10;
-                }
-                bullets[i].is_appear = true;
-                now_time = shooting_interval;
-                break;
-            }
-        }
-    }
-    else{
-        if(now_time > 0)
-        now_time--;
+    weapen->update();
+    if(key_pressed[4] == true){
+        weapen->shoot();
     }
     //外观的渲染
     timer++;
@@ -249,6 +226,7 @@ void Player::update_game()
         timer = 0;
     }
     abs_time = abs(timer - 30);
+    adjusted_y = -abs_time / 10;
 }
 
 
