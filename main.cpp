@@ -1,6 +1,6 @@
+#include <QApplication>
 #include "mainwindow.h"
 #include"stackedwidgets.h"
-#include <QApplication>
 
 int main(int argc, char *argv[])
 {

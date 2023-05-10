@@ -7,13 +7,12 @@ class Plate : public QGraphicsItem
 public:
     Plate();
     QColor color;
-    QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget*widget) override;
-    QPoint position;
     QPixmap pixture;
+    QPoint position;
+    QRectF boundingRect() const override;
     int pix_height,pix_width;
-    bool test_mode;
     int width,height;
+    bool test_mode;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget*widget) override;
 };
-
 #endif // PLATE_H

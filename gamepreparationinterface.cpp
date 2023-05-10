@@ -16,14 +16,14 @@ GamePreparationInterface::~GamePreparationInterface()
 {
     delete ui;
 }
-//开始游戏按钮
+
 void GamePreparationInterface::on_pushButton_clicked()
 {
     stacked_widgets->setCurrentIndex(3);
     stacked_widgets->game.start();
     stacked_widgets->game.view.setFocus();
 }
-//返回菜单按钮
+
 void GamePreparationInterface::on_pushButton_2_clicked()
 {
     stacked_widgets->setCurrentIndex(0);
@@ -137,25 +137,25 @@ void GamePreparationInterface::on_spinBox_valueChanged(int arg1)
 
 void GamePreparationInterface::on_pushButton_12_clicked()
 {
-    Dialog2 dialog(&game_setting->player1_weapen,&game_setting->players[0],this);
+    Dialog2 dialog(&game_setting->players[1].weapen,&game_setting->players[0],this);
     dialog.exec();
 }
 
 void GamePreparationInterface::on_pushButton_13_clicked()
 {
-    Dialog2 dialog(&game_setting->player2_weapen,&game_setting->players[1],this);
+    Dialog2 dialog(&game_setting->players[2].weapen,&game_setting->players[1],this);
     dialog.exec();
 }
 
 void GamePreparationInterface::on_pushButton_14_clicked()
 {
-    Dialog2 dialog(&game_setting->player3_weapen,&game_setting->players[2],this);
+    Dialog2 dialog(&game_setting->players[3].weapen,&game_setting->players[2],this);
     dialog.exec();
 }
 
 void GamePreparationInterface::on_pushButton_15_clicked()
 {
-    Dialog2 dialog(&game_setting->player4_weapen,&game_setting->players[3],this);
+    Dialog2 dialog(&game_setting->players[4].weapen,&game_setting->players[3],this);
     dialog.exec();
 }
 

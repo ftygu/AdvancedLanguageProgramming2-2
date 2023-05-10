@@ -1,6 +1,5 @@
 #include "bullet.h"
 #include<QPainter>
-#include<QtDebug>
 #include<player.h>
 Bullet::Bullet()
 {

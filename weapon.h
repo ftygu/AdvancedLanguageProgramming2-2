@@ -6,10 +6,6 @@ class Weapon
 {
 public:
     Weapon();
-    void update();
-    void shoot();
-    virtual void special_shoot();
-    void paint(QPainter *painter);
     QPixmap pixture;
     QPixmap fire;
     Player *user;
@@ -26,6 +22,10 @@ public:
     int existing_bullets_num;
     int dx,dy;
     int hx1,hx2,hy1,hy2,fx,fy;
+    void update();
+    void shoot();
+    virtual void special_shoot();
+    void paint(QPainter *painter);
 };
 class Akm : public Weapon{
 public:

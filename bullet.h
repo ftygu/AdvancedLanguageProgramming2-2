@@ -8,16 +8,16 @@ public:
     Bullet();
     QColor color;
     QPixmap hit;
+    QPoint position;
     double x,y,vx,vy;
     int height,width;
     int impact_force;
     int damage;
     int existing_time;
-    QPoint position;
+    int hitting_counter;
     bool is_appear;
     bool is_existing;
     bool is_hitting;
-    int hitting_counter;
     bool is_gravity;
     void update();
     virtual void action(Player *player);

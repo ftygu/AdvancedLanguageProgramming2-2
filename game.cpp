@@ -8,19 +8,18 @@ Game::Game(GameSetting *game_setting,StackedWidgets *stackedwidgets) :
     view.shortcut = new QShortcut(QKeySequence(Qt::Key_Escape), &view);
     QObject::connect(view.shortcut, &QShortcut::activated, this, &Game::pause_game);
     QObject::connect(view.shortcut, &QShortcut::activated, &this->dialog, &Dialog1::exec);
-    this->view.setScene(&this->scene);
-    timer.setInterval(16);
     QObject::connect(&timer,SIGNAL(timeout()),this,SLOT(update_game()));
     QObject::connect(&view, &CustomGraphicsView::keyPressed, this, &Game::handleKeyPressEvent);
     QObject::connect(&view, &CustomGraphicsView::keyReleased, this, &Game::handleKeyReleaseEvent);
     players = game_setting->players;
     plates = game_setting->plates;
+    timer.setInterval(16);
     scene.setSceneRect(-960,-540,1920,1080);
+    view.setScene(&scene);
 }
 
 void Game::update_game()
 {
-    //更新玩家
     living_players_num = 0;
     for(int i = 0; i < 4; i++){
         if(players[i].is_apperaed == true){
@@ -35,7 +34,7 @@ void Game::update_game()
             for(int j = 0; j < 4; j++){
                 if(j != i){
                 for(int k = 0; k < 100; k++){
-                    if(players[j].is_apperaed == true && players[j].bullets[k].is_existing == true){
+                    if(players[j].bullets[k].is_existing == true){
                         if(players[i].collidesWithItem(&players[j].bullets[k])){
                              players[j].bullets[k].action(&players[i]);
                         }
@@ -49,20 +48,6 @@ void Game::update_game()
         last_live_player->is_winner = true;
     }
     scene.update();
-    /*
-    for(int i = 0; i < 4; i++){
-        if(players[i].is_apperaed == true && players[i].is_living == true){
-            x += players[i].position.x();
-            y += players[i].position.y();
-        }
-    }
-    //更新视野中心
-    average_point.setX(x / players_num);
-    average_point.setY(y / players_num);
-    view.centerOn(average_point);
-    x = 0;
-    y = 0;
-    */
 }
 
 void Game::start()

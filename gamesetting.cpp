@@ -1,8 +1,7 @@
-#include "gamesetting.h"
 #include<QKeyEvent>
+#include "gamesetting.h"
 #include"plate.h"
 #include"bullet.h"
-#include<QtDebug>
 GameSetting::GameSetting() :
     plates_num(0),players_num(0)
 {
@@ -12,28 +11,24 @@ GameSetting::GameSetting() :
         players_keybindings[0][3] = Qt::Key_D;
         players_keybindings[0][4] = Qt::Key_F;
         players_keybindings[0][5] = Qt::Key_G;
-
         players_keybindings[1][0] = Qt::Key_Up;
         players_keybindings[1][1] = Qt::Key_Down;
         players_keybindings[1][2] = Qt::Key_Left;
         players_keybindings[1][3] = Qt::Key_Right;
         players_keybindings[1][4] = 0;
         players_keybindings[1][5] = 0;
-
         players_keybindings[2][0] = Qt::Key_U;
         players_keybindings[2][1] = Qt::Key_J;
         players_keybindings[2][2] = Qt::Key_H;
         players_keybindings[2][3] = Qt::Key_K;
         players_keybindings[2][4] = Qt::Key_L;
         players_keybindings[2][5] = Qt::Key_Semicolon;
-
         players_keybindings[3][0] = Qt::Key_Home;
         players_keybindings[3][1] = Qt::Key_End;
         players_keybindings[3][2] = Qt::Key_Delete;
         players_keybindings[3][3] = Qt::Key_PageDown;
         players_keybindings[3][4] = Qt::Key_Slash;
         players_keybindings[3][5] = Qt::Key_Minus;
-
         players = new Player[4];
         plates = new Plate[20];
         player1_bullets = new Bullet[100];
@@ -73,7 +68,6 @@ void GameSetting::load_plate1()
         plates[0].pixture.load("://resource/cloud_1.png");
         plates[0].pix_width = 10;
         plates[0].pix_height = 80;
-
         plates[1].position.setX(-700);
         plates[1].position.setY(-100);
         plates[1].width = 595;
@@ -81,7 +75,6 @@ void GameSetting::load_plate1()
         plates[1].pixture.load("://resource/cloud_2.png");
         plates[1].pix_width = 10;
         plates[1].pix_height = 70;
-
         plates[2].position.setX(250);
         plates[2].position.setY(-300);
         plates[2].width = 500;
@@ -89,7 +82,6 @@ void GameSetting::load_plate1()
         plates[2].pixture.load("://resource/cloud_3.png");
         plates[2].pix_width = 10;
         plates[2].pix_height = 100;
-
         plates[3].position.setX(-900);
         plates[3].position.setY(100);
         plates[3].width = 520;
@@ -97,7 +89,6 @@ void GameSetting::load_plate1()
         plates[3].pixture.load("://resource/cloud_4.png");
         plates[3].pix_width = 15;
         plates[3].pix_height = 130;
-
         plates[4].position.setX(200);
         plates[4].position.setY(100);
         plates[4].width = 520;
@@ -105,7 +96,6 @@ void GameSetting::load_plate1()
         plates[4].pixture.load("://resource/cloud_5.png");
         plates[4].pix_width = 20;
         plates[4].pix_height = 90;
-
         plates[5].position.setX(-350);
         plates[5].position.setY(250);
         plates[5].width = 660;
@@ -113,7 +103,6 @@ void GameSetting::load_plate1()
         plates[5].pixture.load("://resource/cloud_6.png");
         plates[5].pix_width = 15;
         plates[5].pix_height = 140;
-
         plates[6].position.setX(166);
         plates[6].position.setY(-100);
         plates[6].width = 595;

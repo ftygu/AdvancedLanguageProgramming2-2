@@ -1,9 +1,8 @@
-#include "weapon.h"
-#include"player.h"
 #include<qpainter.h>
-#include<QtDebug>
 #include<QString>
 #include<QSound>
+#include"weapon.h"
+#include"player.h"
 Weapon::Weapon()
 {
 
@@ -135,6 +134,7 @@ void Akm::special_shoot()
                 user->bullets[i].y = user->y+user->height/2;
                 user->bullets[i].vx = bullet_speed*user->face;
                 user->bullets[i].vy = existing_bullets_num % 4 - 2;
+                user->bullets[i].damage = bullet_damage;
                 user->bullets[i].impact_force = bullet_impact_force;
                 user->bullets[i].width = bullet_width;
                 user->bullets[i].height = bullet_height;
@@ -178,22 +178,23 @@ M4::M4()
 
 void M4::special_shoot()
 {
-    if(time_to_shooting == 0 && time_to_reloading == 0){
+    if(time_to_shooting == 0 && time_to_reloading == 0 && existing_bullets_num >= 5){
         for(int i = 0; i < 100; i++){
             if(user->bullets[i].is_appear == false){
                 user->bullets[i].x = user->x+user->width;
                 user->bullets[i].y = user->y+user->height/2;
-                user->bullets[i].vx = bullet_speed*user->face/2;
+                user->bullets[i].vx = bullet_speed*user->face/3;
                 user->bullets[i].vy = 0;
-                user->bullets[i].impact_force = bullet_impact_force;
+                user->bullets[i].damage = bullet_damage*3;
+                user->bullets[i].impact_force = bullet_impact_force*2;
                 user->bullets[i].width = bullet_width;
                 user->bullets[i].height = bullet_height*2;
                 user->bullets[i].existing_time = bullet_existing_time;
                 user->bullets[i].is_existing = true;
-                user->bullets[i].is_gravity = true;
+                user->bullets[i].is_gravity = false;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num -= 5;
-                user->ax += bullet_impact_force*-user->face;
+                user->ax += bullet_impact_force*-user->face*2;
                 break;
             }
         }
@@ -326,7 +327,7 @@ void sawed_off::special_shoot()
                     user->bullets[i].vx = bullet_speed*user->face;
                     user->bullets[i].vy = 0;
                     user->bullets[i].impact_force = bullet_impact_force*2;
-                    user->bullets[i].damage = bullet_damage;
+                    user->bullets[i].damage = bullet_damage*1.5;
                     user->bullets[i].width = bullet_width;
                     user->bullets[i].height = bullet_height;
                     user->bullets[i].existing_time = bullet_existing_time;

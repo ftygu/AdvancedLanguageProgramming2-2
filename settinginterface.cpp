@@ -2,7 +2,6 @@
 #include "ui_settinginterface.h"
 #include"stackedwidgets.h"
 #include"gamesetting.h"
-#include<Qt>
 #include <QPushButton>
 #include <QString>
 #include <QMetaEnum>
@@ -16,7 +15,6 @@ SettingInterface::SettingInterface(QWidget *parent, GameSetting *game_setting) :
     ui(new Ui::SettingInterface)
 {
     ui->setupUi(this);
-    //使指针指向正确的对象
     stacked_widgets = static_cast<StackedWidgets*>(parent);
     this->game_setting = game_setting;
     //为每个按键按照setting中的键位设置初始化文本

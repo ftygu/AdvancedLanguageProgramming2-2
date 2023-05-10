@@ -1,31 +1,14 @@
-#include "player.h"
 #include<QPainter>
 #include<QKeyEvent>
-#include<plate.h>
-#include<algorithm>
-#include<QDebug>
+#include"plate.h"
+#include "player.h"
 Player::Player() :
     width(30),height(54),position(0,0)
   ,sound1(":/resource/shoot.wav"),sound2("://resource/reload.wav"),sound3("://resource/shooted.wav")
 {
     is_apperaed = false;
-    for(int i = 0; i < 6; i++){
-        key_pressed[i] = false;
-    }
-    max_junp_time = 2;
-    have_jumped = false;
-    want_down = false;
-    want_down_counter = 0;
-    setZValue(1);
-    //color_test
     head_color = Qt::blue;
     body_color = Qt::green;
-    health = 100;
-    remaining_lives = 2;
-    kill_count = 0;
-    timer = 30;
-    is_living = true;
-    is_winner = false;
     setZValue(1);
 }
 
@@ -36,15 +19,11 @@ QRectF Player::boundingRect() const
 
 void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    Q_UNUSED(option);  //标明该参数没有使用
+    Q_UNUSED(option);
     Q_UNUSED(widget);
     painter->save();
     if(face == 1){
         painter->scale(1, 1);
-        /*
-        painter->setBrush(Qt::red);
-        painter->drawRect(position.x(), position.y(), width, height);
-        */
         QColor shadow(150, 150, 150);
         shadow.setAlpha(150);
         painter->setBrush(shadow);
@@ -80,10 +59,6 @@ void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     else{
         int adjusted_x = -position.x() - width;
         painter->scale(-1, 1);
-        /*
-        painter->setBrush(Qt::red);
-        painter->drawRect(adjusted_x, position.y(), width, height);
-        */
         QColor shadow(150, 150, 150);
         shadow.setAlpha(150);
         painter->setBrush(shadow);
@@ -148,9 +123,10 @@ void Player::update_game()
             remaining_lives--;
             x = 0;
             y = -600;
+            vx = 0;
+            vy = 0;
             health = 100;
         }
-        //沿x轴移动的计算
         if (key_pressed[2] == true && vx >= -8) {
             ax -= 0.5f;
             face = -1;
@@ -175,8 +151,6 @@ void Player::update_game()
         x += vx;
         position.setX(x);
         ax = 0.0f;
-
-        //沿y轴移动的计算
         if(want_down_counter >= 20){
             want_down = false;
             want_down_counter = 0;
@@ -226,16 +200,12 @@ void Player::update_game()
         y += vy;
         position.setY(y);
         ay = 0.0f;
-
-        //超出场景的判断
         if(y >=810){
             x = 0;
             y = -600;
             remaining_lives--;
             health = 100;
         }
-
-        //射击的判断
         weapen->update();
         if(key_pressed[4] == true){
             weapen->shoot();
@@ -243,7 +213,6 @@ void Player::update_game()
         if(key_pressed[5] == true){
             weapen->special_shoot();
         }
-        //外观的渲染
         timer++;
         if(timer > 60){
             timer = 0;
@@ -263,6 +232,7 @@ void Player::initialization(int lives_num)
     remaining_lives = lives_num;
     jump_time = 0;
     max_junp_time = 2;
+    face = 1;
     is_living = true;
     is_winner = false;
     have_jumped = false;
@@ -270,7 +240,6 @@ void Player::initialization(int lives_num)
     for(int i = 0; i < 6; i++){
         key_pressed[i] = false;
     }
-    face = 1;
 }
 
 
