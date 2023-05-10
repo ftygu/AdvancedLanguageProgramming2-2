@@ -15,11 +15,11 @@ void Plate::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
     Q_UNUSED(option);
         Q_UNUSED(widget);
         if(test_mode == true){
-            painter->setBrush(Qt::blue);
+            painter->setBrush(color);
             QRectF rect = boundingRect();
             painter->drawRect(rect);
         }
-        else{
-            painter->drawPixmap(position.x() - pix_width, position.y() - pix_height, pixture);
+        if(pixture.isNull()==false){
+        painter->drawPixmap(position.x() - pix_width, position.y() - pix_height, pixture);
         }
 }

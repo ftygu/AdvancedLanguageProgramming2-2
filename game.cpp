@@ -35,7 +35,7 @@ void Game::update_game()
             for(int j = 0; j < 4; j++){
                 if(j != i){
                 for(int k = 0; k < 100; k++){
-                    if(players[j].is_apperaed == true && players[j].bullets[k].is_appear == true){
+                    if(players[j].is_apperaed == true && players[j].bullets[k].is_existing == true){
                         if(players[i].collidesWithItem(&players[j].bullets[k])){
                              players[j].bullets[k].action(&players[i]);
                         }
@@ -79,6 +79,7 @@ void Game::start()
             for(int j = 0; j < 100; j++){
                 this->scene.addItem(&players[i].bullets[j]);
             }
+            scene.setBackgroundBrush(QBrush(game_setting->background_color));
         }
     }
     for(int i = 0; i < plates_num; i++){

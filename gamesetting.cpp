@@ -59,47 +59,124 @@ GameSetting::GameSetting() :
         lives_num = 1;
 }
 
-void GameSetting::load_plate_test()
+void GameSetting::load_plate1()
 {
-    plates_num = 5;
-
-        plates[0].position.setX(-890);
-        plates[0].position.setY(-200);
-        plates[0].width = 285;
-        plates[0].height = 100;
+    plates_num = 7;
+    background_color.setRgb(30,75,106);
+    for(int i = 0; i < 7; i++){
+        plates[i].test_mode=false;
+    }
+        plates[0].position.setX(-900);
+        plates[0].position.setY(-300);
+        plates[0].width = 575;
+        plates[0].height = 200;
         plates[0].pixture.load("://resource/cloud_1.png");
-        plates[0].pix_width = 0;
-        plates[0].pix_height = 70;
+        plates[0].pix_width = 10;
+        plates[0].pix_height = 80;
 
-        plates[1].position.setX(-166);
-        plates[1].position.setY(-200);
-        plates[1].width = 285;
-        plates[1].height = 100;
-        plates[1].pixture.load("://resource/cloud_1.png");
-        plates[1].pix_width = 0;
+        plates[1].position.setX(-700);
+        plates[1].position.setY(-100);
+        plates[1].width = 595;
+        plates[1].height = 200;
+        plates[1].pixture.load("://resource/cloud_2.png");
+        plates[1].pix_width = 10;
         plates[1].pix_height = 70;
 
-        plates[2].position.setX(563);
-        plates[2].position.setY(-200);
-        plates[2].width = 285;
+        plates[2].position.setX(250);
+        plates[2].position.setY(-300);
+        plates[2].width = 500;
         plates[2].height = 100;
-        plates[2].pixture.load("://resource/cloud_1.png");
-        plates[2].pix_width = 0;
-        plates[2].pix_height = 70;
+        plates[2].pixture.load("://resource/cloud_3.png");
+        plates[2].pix_width = 10;
+        plates[2].pix_height = 100;
 
-        plates[3].position.setX(-563);
-        plates[3].position.setY(0);
-        plates[3].width = 285;
+        plates[3].position.setX(-900);
+        plates[3].position.setY(100);
+        plates[3].width = 520;
         plates[3].height = 100;
-        plates[3].pixture.load("://resource/cloud_1.png");
-        plates[3].pix_width = 0;
-        plates[3].pix_height = 70;
+        plates[3].pixture.load("://resource/cloud_4.png");
+        plates[3].pix_width = 15;
+        plates[3].pix_height = 130;
 
-        plates[4].position.setX(166);
-        plates[4].position.setY(0);
-        plates[4].width = 285;
+        plates[4].position.setX(200);
+        plates[4].position.setY(100);
+        plates[4].width = 520;
         plates[4].height = 100;
-        plates[4].pixture.load("://resource/cloud_1.png");
-        plates[4].pix_width = 0;
-        plates[4].pix_height = 70;
+        plates[4].pixture.load("://resource/cloud_5.png");
+        plates[4].pix_width = 20;
+        plates[4].pix_height = 90;
+
+        plates[5].position.setX(-350);
+        plates[5].position.setY(250);
+        plates[5].width = 660;
+        plates[5].height = 100;
+        plates[5].pixture.load("://resource/cloud_6.png");
+        plates[5].pix_width = 15;
+        plates[5].pix_height = 140;
+
+        plates[6].position.setX(166);
+        plates[6].position.setY(-100);
+        plates[6].width = 595;
+        plates[6].height = 100;
+        plates[6].pixture.load("://resource/cloud_7.png");
+        plates[6].pix_width = 5;
+        plates[6].pix_height = 70;
+}
+
+void GameSetting::load_plate2()
+{
+    plates_num = 4;
+    background_color.setRgb(255,255,255);
+    for(int i = 0; i < 4; i++){
+        plates[i].test_mode = true;
+        plates[i].position.setX(-900);
+        plates[i].position.setY(-300+i*150);
+        plates[i].width = 1800;
+        plates[i].height = 50;
+        plates[i].color.setRgb(134,179,211);
+        plates[i].pixture.fill(Qt::transparent);
+    }
+}
+
+void GameSetting::load_plate3()
+{
+    plates_num = 4;
+    background_color.setRgb(255,255,255);
+    for(int i = 0; i < 4; i++){
+        plates[i].test_mode = true;
+        plates[i].position.setX(-900+i*200);
+        plates[i].position.setY(-300+i*150);
+        plates[i].width = 1800-i*400;
+        plates[i].height = 50;
+        plates[i].color.setRgb(141,244,165);
+        plates[i].pixture.fill(Qt::transparent);
+    }
+}
+
+void GameSetting::load_plate4()
+{
+    plates_num = 4;
+    background_color.setRgb(255,255,255);
+    for(int i = 0; i < 4; i++){
+        plates[i].test_mode = true;
+        plates[i].position.setX(-300-i*200);
+        plates[i].position.setY(-300+i*150);
+        plates[i].width = 600+i*400;
+        plates[i].height = 50;
+        plates[i].color.setRgb(195,79,206);
+        plates[i].pixture.fill(Qt::transparent);
+    }
+}
+
+void GameSetting::load_plate5()
+{
+    plates_num = 1;
+    background_color.setRgb(255,255,255);
+        plates[0].test_mode = true;
+        plates[0].position.setX(-900);
+        plates[0].position.setY(200);
+        plates[0].width = 1800;
+        plates[0].height = 50;
+        plates[0].color.setRgb(124,117,218);
+        plates[0].pixture.fill(Qt::transparent);
 }

@@ -25,6 +25,7 @@ Player::Player() :
     timer = 30;
     is_living = true;
     is_winner = false;
+    setZValue(1);
 }
 
 QRectF Player::boundingRect() const

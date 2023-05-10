@@ -79,7 +79,7 @@ void GamePreparationInterface::on_checkBox_4_stateChanged(int arg1)
 
 void GamePreparationInterface::on_pushButton_3_clicked()
 {
-    game_setting->load_plate_test();
+    game_setting->load_plate1();
 }
 
 void GamePreparationInterface::on_pushButton_4_clicked()
@@ -139,4 +139,42 @@ void GamePreparationInterface::on_pushButton_12_clicked()
 {
     Dialog2 dialog(&game_setting->player1_weapen,&game_setting->players[0],this);
     dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_13_clicked()
+{
+    Dialog2 dialog(&game_setting->player2_weapen,&game_setting->players[1],this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_14_clicked()
+{
+    Dialog2 dialog(&game_setting->player3_weapen,&game_setting->players[2],this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_15_clicked()
+{
+    Dialog2 dialog(&game_setting->player4_weapen,&game_setting->players[3],this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_pushButton_16_clicked()
+{
+    game_setting->load_plate2();
+}
+
+void GamePreparationInterface::on_pushButton_17_clicked()
+{
+    game_setting->load_plate3();
+}
+
+void GamePreparationInterface::on_pushButton_18_clicked()
+{
+    game_setting->load_plate4();
+}
+
+void GamePreparationInterface::on_pushButton_19_clicked()
+{
+    game_setting->load_plate5();
 }

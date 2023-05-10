@@ -7,5 +7,12 @@
         <file>resource/ump45.png</file>
         <file>resource/awm.png</file>
         <file>resource/sawed_off.png</file>
+        <file>resource/hit.png</file>
+        <file>resource/cloud_2.png</file>
+        <file>resource/cloud_3.png</file>
+        <file>resource/cloud_4.png</file>
+        <file>resource/cloud_5.png</file>
+        <file>resource/cloud_6.png</file>
+        <file>resource/cloud_7.png</file>
     </qresource>
 </RCC>

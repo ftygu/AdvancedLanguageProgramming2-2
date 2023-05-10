@@ -36,7 +36,7 @@ void Weapon::shoot()
                 user->bullets[i].width = bullet_width;
                 user->bullets[i].height = bullet_height;
                 user->bullets[i].existing_time = bullet_existing_time;
-                user->bullets[i].is_appear = true;
+                user->bullets[i].is_existing = true;
                 user->bullets[i].is_gravity = false;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num--;
@@ -136,7 +136,7 @@ void Akm::special_shoot()
                 user->bullets[i].width = bullet_width;
                 user->bullets[i].height = bullet_height;
                 user->bullets[i].existing_time = bullet_existing_time;
-                user->bullets[i].is_appear = true;
+                user->bullets[i].is_existing = true;
                 user->bullets[i].is_gravity = false;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num--;
@@ -185,7 +185,7 @@ void M4::special_shoot()
                 user->bullets[i].width = bullet_width;
                 user->bullets[i].height = bullet_height*2;
                 user->bullets[i].existing_time = bullet_existing_time;
-                user->bullets[i].is_appear = true;
+                user->bullets[i].is_existing = true;
                 user->bullets[i].is_gravity = true;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num -= 5;
@@ -236,7 +236,7 @@ void Awm::special_shoot()
                     user->bullets[i].width = bullet_width*1.4;
                     user->bullets[i].height = bullet_height;
                     user->bullets[i].existing_time = bullet_existing_time;
-                    user->bullets[i].is_appear = true;
+                    user->bullets[i].is_existing = true;
                     user->bullets[i].is_gravity = false;
                     time_to_shooting = shooting_interval;
                     existing_bullets_num-=2;
@@ -323,7 +323,7 @@ void sawed_off::special_shoot()
                     user->bullets[i].width = bullet_width;
                     user->bullets[i].height = bullet_height;
                     user->bullets[i].existing_time = bullet_existing_time;
-                    user->bullets[i].is_appear = true;
+                    user->bullets[i].is_existing = true;
                     user->bullets[i].is_gravity = false;
                     time_to_shooting = shooting_interval;
                     existing_bullets_num-=3;

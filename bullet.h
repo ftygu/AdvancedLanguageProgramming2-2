@@ -7,6 +7,7 @@ class Bullet : public  QGraphicsItem
 public:
     Bullet();
     QColor color;
+    QPixmap hit;
     double x,y,vx,vy;
     int height,width;
     int impact_force;
@@ -14,6 +15,9 @@ public:
     int existing_time;
     QPoint position;
     bool is_appear;
+    bool is_existing;
+    bool is_hitting;
+    int hitting_counter;
     bool is_gravity;
     void update();
     virtual void action(Player *player);
