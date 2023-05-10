@@ -2,7 +2,7 @@
 #include<QKeyEvent>
 #include"plate.h"
 GameSetting::GameSetting() :
-    players_num(4),plates_num(0)
+    plates_num(0),Players_num(0)
 {
         players_keybindings[0][0] = Qt::Key_W;
         players_keybindings[0][1] = Qt::Key_S;
@@ -33,4 +33,12 @@ GameSetting::GameSetting() :
         players_keybindings[3][5] = Qt::Key_Minus;
 
         players = new Player[4];
+        plates = new Plate[20];
+}
+
+void GameSetting::load_plate_test()
+{
+    plates_num = 5;
+    for(int i = 1; i < plates_num; i++){
+    }
 }

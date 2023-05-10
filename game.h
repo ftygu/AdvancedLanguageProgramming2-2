@@ -25,6 +25,11 @@ public:
     int plates_num,players_num;
     //刷新器
     QTimer timer;
+    //所有玩家的平均坐标
+    double x,y;
+    QPoint average_point;
+    //视野放缩大小
+    double magnification_ratio;
 public slots:
     //更新下一帧
     void update_game();

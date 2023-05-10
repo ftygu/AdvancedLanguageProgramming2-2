@@ -30,6 +30,8 @@ private slots:
 
     void on_checkBox_4_stateChanged(int arg1);
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::GamePreparationInterface *ui;
     //用于修改地图，角色等属性

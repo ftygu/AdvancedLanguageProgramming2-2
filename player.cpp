@@ -2,7 +2,7 @@
 #include<QPainter>
 #include<QKeyEvent>
 Player::Player() :
-    width(20),height(20),position(20,20)
+    width(20),height(20),position(0,0)
 {
     is_apperaed = false;
     for(int i = 0; i < 6; i++){
