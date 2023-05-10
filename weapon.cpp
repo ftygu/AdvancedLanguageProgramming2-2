@@ -2,6 +2,7 @@
 #include"player.h"
 #include<qpainter.h>
 #include<QtDebug>
+#include<QString>
 Weapon::Weapon()
 {
 
@@ -68,6 +69,12 @@ void Weapon::paint(QPainter *painter)
 {
     painter->save();
     painter->translate(user->position.x()+user->width/2,user->position.y()+user->height/2+user->adjusted_y);
+    QString text = QString::number(existing_bullets_num);
+    painter->setRenderHint(QPainter::Antialiasing);
+    QFont font("Arial", 15);
+    painter->setFont(font);
+    painter->setPen(Qt::black);
+    painter->drawText(-user->width*7/20, -user->height*6/10, text);
     painter->scale(user->face,1);
     if(time_to_shooting == 0 && time_to_reloading == 0){
     }

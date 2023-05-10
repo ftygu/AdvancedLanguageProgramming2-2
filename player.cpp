@@ -159,7 +159,7 @@ void Player::update_game()
     ax = 0.0f;
 
     //沿y轴移动的计算
-    if(want_down_counter >= 15){
+    if(want_down_counter >= 20){
         want_down = false;
         want_down_counter = 0;
     }
