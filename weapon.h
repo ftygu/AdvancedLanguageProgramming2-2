@@ -1,10 +1,12 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 #include "bullet.h"
+class Player;
 class Weapon
 {
 public:
-    Weapon();
+    Weapon(Player *user);
+    Player *user;
     int bullet_num;
     int bullet_speed;
     int bullet_impact_force;
@@ -12,9 +14,4 @@ public:
     int shooting_interval;
     int reload_time;
 };
-
-class TheGun : public Weapon{
-    TheGun();
-};
-
 #endif // WEAPON_H

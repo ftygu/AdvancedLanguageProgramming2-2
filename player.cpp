@@ -5,7 +5,7 @@
 #include<algorithm>
 #include<QDebug>
 Player::Player() :
-    width(20),height(20),position(0,0)
+    width(30),height(54),position(0,0)
 {
     is_apperaed = false;
     for(int i = 0; i < 6; i++){
@@ -18,6 +18,10 @@ Player::Player() :
     shooting_interval = 20;
     now_time = 0;
     setZValue(1);
+    //color_test
+    head_color = Qt::blue;
+    body_color = Qt::green;
+    timer = 30;
 }
 
 QRectF Player::boundingRect() const
@@ -29,8 +33,83 @@ void Player::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     Q_UNUSED(option);  //标明该参数没有使用
     Q_UNUSED(widget);
-    painter->setBrush(Qt::red);
-    painter->drawRect(position.x(), position.y(), width, height);
+    int adjusted_y = -abs_time / 10;
+    if(face == 1){
+        painter->scale(1, 1);
+        /*
+        painter->setBrush(Qt::red);
+        painter->drawRect(position.x(), position.y(), width, height);
+        */
+        QColor shadow(150, 150, 150);
+        shadow.setAlpha(150);
+        painter->setBrush(shadow);
+        if(on_ground == true){
+            painter->drawEllipse(position.x()-width/5+abs_time/4,position.y()+height*8/9-adjusted_y,width*7/5-abs_time/2,height*2/9+adjusted_y*2);
+        }
+        QPen pen(Qt::black);
+        pen.setWidth(1);
+        painter->setPen(pen);
+        painter->setBrush(body_color);
+        QPolygonF polygon;
+        polygon << QPointF(position.x(), position.y()+height/3+adjusted_y)
+                << QPointF(position.x()+width/5, position.y()+height+adjusted_y)
+                << QPointF(position.x()+width*4/5, position.y()+height+adjusted_y)
+                << QPointF(position.x()+width, position.y()+height/3+adjusted_y);
+        painter->drawPolygon(polygon);
+        painter->setBrush(head_color);
+        if(vy >= 0){
+            painter->drawEllipse(position.x() + width/5, position.y() - vy+adjusted_y, width*2/3, width*2/3);
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::black);
+            painter->drawEllipse(position.x() + width*4/10, position.y() - vy + height / 9+adjusted_y, width/5, width/5);
+            painter->drawEllipse(position.x() + width*6/10, position.y() - vy + height / 9+adjusted_y, width/5, width/5);
+        }
+        else{
+            painter->drawEllipse(position.x() + width/5, position.y() - vy/2+adjusted_y, width*2/3, width*2/3);
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::black);
+            painter->drawEllipse(position.x() + width*4/10, position.y() - vy/2 + height / 9+adjusted_y, width/5, width/5);
+            painter->drawEllipse(position.x() + width*6/10, position.y() - vy/2 + height / 9+adjusted_y, width/5, width/5);
+        }
+    }
+    else{
+        int adjusted_x = -position.x() - width;
+        painter->scale(-1, 1);
+        /*
+        painter->setBrush(Qt::red);
+        painter->drawRect(adjusted_x, position.y(), width, height);
+        */
+        QColor shadow(150, 150, 150);
+        shadow.setAlpha(150);
+        painter->setBrush(shadow);
+        if(on_ground == true){
+            painter->drawEllipse(adjusted_x - width / 5+abs_time/4, position.y() + height * 8 / 9-adjusted_y, width * 7 / 5-abs_time/2, height * 2 / 9+adjusted_y*2);
+        }
+        QPen pen(Qt::black);
+        pen.setWidth(1);
+        painter->setPen(pen);
+        painter->setBrush(body_color);
+        QPolygonF polygon;
+        polygon << QPointF(adjusted_x, position.y() + height / 3+adjusted_y)
+                << QPointF(adjusted_x + width / 5, position.y() + height+adjusted_y)
+                << QPointF(adjusted_x + width * 4 / 5, position.y() + height+adjusted_y)
+                << QPointF(adjusted_x + width, position.y() + height / 3+adjusted_y);
+        painter->drawPolygon(polygon);
+        painter->setBrush(head_color);
+        if (vy >= 0) {
+            painter->drawEllipse(adjusted_x + width / 5, position.y() - vy+adjusted_y, width * 2 / 3, width * 2 / 3);
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::black);
+            painter->drawEllipse(adjusted_x + width * 4 / 10, position.y() - vy + height / 9+adjusted_y, width / 5, width / 5);
+            painter->drawEllipse(adjusted_x + width * 6 / 10, position.y() - vy + height / 9+adjusted_y, width / 5, width / 5);
+        } else {
+            painter->drawEllipse(adjusted_x + width / 5, position.y() - vy / 2+adjusted_y, width * 2 / 3, width * 2 / 3);
+            painter->setPen(Qt::NoPen);
+            painter->setBrush(Qt::black);
+            painter->drawEllipse(adjusted_x + width * 4 / 10, position.y() - vy / 2 + height / 9+adjusted_y, width / 5, width / 5);
+            painter->drawEllipse(adjusted_x + width * 6 / 10, position.y() - vy / 2 + height / 9+adjusted_y, width / 5, width / 5);
+        }
+    }
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -55,9 +134,11 @@ void Player::update_game()
     //沿x轴移动的计算
     if (key_pressed[2] == true) {
         ax -= 0.5f;
+        face = -1;
     }
     if (key_pressed[3] == true) {
         ax += 0.5f;
+        face = 1;
     }
     if (key_pressed[3] == false && key_pressed[2] == false) {
         if (vx > 0.0f) {
@@ -162,6 +243,12 @@ void Player::update_game()
         if(now_time > 0)
         now_time--;
     }
+    //外观的渲染
+    timer++;
+    if(timer > 60){
+        timer = 0;
+    }
+    abs_time = abs(timer - 30);
 }
 
 

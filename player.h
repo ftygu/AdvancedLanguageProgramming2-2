@@ -9,7 +9,6 @@ class Player : public QGraphicsItem
 {
 public:
     Player();
-    QColor color;
     int *keybindings;
     Plate *plates;
     int plates_num;
@@ -36,6 +35,12 @@ public:
     int shooting_interval;
     int reload_time;
     int now_time;
+    //人物外观
+    QColor head_color;
+    QColor body_color;
+    int timer;
+    int abs_time;
+    int face;
 };
 
 #endif // PLAYER_H
