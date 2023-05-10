@@ -30,6 +30,7 @@ public:
     QPoint average_point;
     //视野放缩大小
     double magnification_ratio;
+    int living_players_num;
 public slots:
     //更新下一帧
     void update_game();

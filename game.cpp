@@ -17,8 +17,12 @@ Game::Game(GameSetting *game_setting) :
 void Game::update_game()
 {
     //更新玩家
+    living_players_num = 0;
     for(int i = 0; i < 4; i++){
-        if(players[i].is_apperaed == true)
+        if(players[i].is_apperaed == true){
+            if(players[i].remaining_lives > 0){
+                living_players_num++;
+            }
             players[i].update_game();
             for (int j = 0; j < 100; j++) {
                 players[i].bullets[j].update();
@@ -28,23 +32,23 @@ void Game::update_game()
                 for(int k = 0; k < 100; k++){
                     if(players[j].is_apperaed == true && players[j].bullets[k].is_appear == true){
                         if(players[i].collidesWithItem(&players[j].bullets[k])){
-                            if(players[j].bullets[k].vx > 0)
-                            players[i].ax += players[j].bullets[k].impact_force;
-                            else{
-                            players[i].ax -= players[j].bullets[k].impact_force;
-                            }
-                             players[j].bullets[k].is_appear = false;
+                             players[j].bullets[k].action(&players[i]);
                         }
                     }
                 }
                 }
             }
-
         }
+     }
+    if(living_players_num == 1){
+        /*
+        timer.stop();
+        */
+    }
     scene.update();
     /*
     for(int i = 0; i < 4; i++){
-        if(players[i].is_apperaed == true){
+        if(players[i].is_apperaed == true && players[i].is_living == true){
             x += players[i].position.x();
             y += players[i].position.y();
         }
@@ -52,17 +56,10 @@ void Game::update_game()
     //更新视野中心
     average_point.setX(x / players_num);
     average_point.setY(y / players_num);
-    for(int i = 0; i < 4; i++){
-        if(players[i].is_apperaed == true){
-            x += players[i].position.x();
-            y += players[i].position.y();
-        }
-    }
     view.centerOn(average_point);
     x = 0;
     y = 0;
     */
-    //更新缩放倍率
 }
 
 void Game::start()

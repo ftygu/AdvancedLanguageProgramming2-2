@@ -19,7 +19,11 @@ Player::Player() :
     //color_test
     head_color = Qt::blue;
     body_color = Qt::green;
+    health = 100;
+    remaining_lives = 2;
+    kill_count = 0;
     timer = 30;
+    is_living = true;
 }
 
 QRectF Player::boundingRect() const
@@ -130,103 +134,121 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
 void Player::update_game()
 {
-
-    //沿x轴移动的计算
-    if (key_pressed[2] == true) {
-        ax -= 0.5f;
-        face = -1;
-    }
-    if (key_pressed[3] == true) {
-        ax += 0.5f;
-        face = 1;
-    }
-    if (key_pressed[3] == false && key_pressed[2] == false) {
-        if (vx > 0.0f) {
-            ax -= 0.3f;
-        }
-        if (vx < 0.0f) {
-            ax += 0.3f;
-        }
-    }
-    vx += ax;
-
-    if (vx > -0.2f && vx < 0.2f) {
-        vx = 0;
-    }
-    vx = std::min(std::max(vx, -8.0f), 8.0f);
-    x += vx;
-    position.setX(x);
-    ax = 0.0f;
-
-    //沿y轴移动的计算
-    if(want_down_counter >= 20){
-        want_down = false;
-        want_down_counter = 0;
+    if(remaining_lives > 0){
+        is_living = true;
     }
     else{
-        if(want_down == true){
-            want_down_counter++;
+        is_living = false;
+    }
+    if(is_living){
+        if(health <= 0){
+            remaining_lives--;
+            x = 0;
+            y = -600;
+            health = 100;
         }
-    }
-    if(key_pressed[1] == true){
-        want_down = true;
-    }
-    on_ground = 0;
-    for (int i = 0; i < plates_num; i++) {
-        if (x + width >= plates[i].position.x() && x <= plates[i].position.x() + plates[i].width) {
-            if (y + height >= plates[i].position.y() && y <= plates[i].position.y()) {
-                if(vy >= 0 && want_down == false){
-                    y = plates[i].position.y() - height;
-                    vy = 0.0f;
-                    jump_time = 0;
-                    on_ground = 1;
-                    break;
+        //沿x轴移动的计算
+        if (key_pressed[2] == true) {
+            ax -= 0.5f;
+            face = -1;
+        }
+        if (key_pressed[3] == true) {
+            ax += 0.5f;
+            face = 1;
+        }
+        if (key_pressed[3] == false && key_pressed[2] == false) {
+            if (vx > 0.0f) {
+                ax -= 0.3f;
+            }
+            if (vx < 0.0f) {
+                ax += 0.3f;
+            }
+        }
+        vx += ax;
+
+        if (vx > -0.2f && vx < 0.2f) {
+            vx = 0;
+        }
+        vx = std::min(std::max(vx, -8.0f), 8.0f);
+        x += vx;
+        position.setX(x);
+        ax = 0.0f;
+
+        //沿y轴移动的计算
+        if(want_down_counter >= 20){
+            want_down = false;
+            want_down_counter = 0;
+        }
+        else{
+            if(want_down == true){
+                want_down_counter++;
+            }
+        }
+        if(key_pressed[1] == true){
+            want_down = true;
+        }
+        on_ground = 0;
+        for (int i = 0; i < plates_num; i++) {
+            if (x + width >= plates[i].position.x() && x <= plates[i].position.x() + plates[i].width) {
+                if (y + height >= plates[i].position.y() && y <= plates[i].position.y()) {
+                    if(vy >= 0 && want_down == false){
+                        y = plates[i].position.y() - height;
+                        vy = 0.0f;
+                        jump_time = 0;
+                        on_ground = 1;
+                        break;
+                    }
                 }
             }
         }
-    }
-    if(on_ground == 0){
-        ay += 0.3f;
-    }
-    if(jump_time < max_junp_time){
-        if(key_pressed[0] == true){
-            if(have_jumped == false){
-                vy = -8.0f;
-                jump_time++;
-                have_jumped = true;
+        if(on_ground == false){
+            ay += 0.3f;
+        }
+        if(jump_time < max_junp_time){
+            if(key_pressed[0] == true){
+                if(have_jumped == false){
+                    vy = -8.0f;
+                    jump_time++;
+                    have_jumped = true;
+                }
+            }
+            if(key_pressed[0] == false){
+                have_jumped = false;
             }
         }
-        if(key_pressed[0] == false){
-            have_jumped = false;
+        vy += ay;
+        if (vy > -0.1f && vy < 0.1f) {
+            vy = 0.0f;
         }
-    }
-    vy += ay;
-    if (vy > -0.1f && vy < 0.1f) {
-        vy = 0.0f;
-    }
-    vy = std::min(std::max(vy, -10.0f), 10.0f);
-    y += vy;
-    position.setY(y);
-    ay = 0.0f;
+        vy = std::min(std::max(vy, -10.0f), 10.0f);
+        y += vy;
+        position.setY(y);
+        ay = 0.0f;
 
-    //超出场景的判断
-    if(y >=810){
-        x = 0;
-        y = -600;
-    }
+        //超出场景的判断
+        if(y >=810){
+            x = 0;
+            y = -600;
+            remaining_lives--;
+            health = 100;
+        }
 
-    //射击的判断
-    weapen->update();
-    if(key_pressed[4] == true){
-        weapen->shoot();
+        //射击的判断
+        weapen->update();
+        if(key_pressed[4] == true){
+            weapen->shoot();
+        }
+        if(key_pressed[5] == true){
+            weapen->special_shoot();
+        }
+        //外观的渲染
+        timer++;
+        if(timer > 60){
+            timer = 0;
+        }
+        abs_time = abs(timer - 30);
+        adjusted_y = -abs_time / 10;
     }
-    //外观的渲染
-    timer++;
-    if(timer > 60){
-        timer = 0;
-    }
-    abs_time = abs(timer - 30);
-    adjusted_y = -abs_time / 10;
 }
 
 

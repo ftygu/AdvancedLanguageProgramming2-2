@@ -8,14 +8,14 @@ public:
     Weapon();
     void update();
     void shoot();
-    void special_shoot();
-    void load_akm();
+    virtual void special_shoot();
     void paint(QPainter *painter);
     QPixmap pixture;
     Player *user;
     int bullet_num;
     int bullet_speed;
     int bullet_impact_force;
+    int bullet_damage;
     int bullet_existing_time;
     int bullet_width,bullet_height;
     int shooting_interval;
@@ -26,4 +26,15 @@ public:
     int dx,dy;
     int hx1,hx2,hy1,hy2;
 };
+class Akm : public Weapon{
+public:
+    Akm();
+    void special_shoot() override;
+};
+class M4 : public Weapon{
+public:
+    M4();
+    void special_shoot() override;
+};
+
 #endif // WEAPON_H

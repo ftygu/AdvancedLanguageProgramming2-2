@@ -39,6 +39,11 @@ public:
     int abs_time;
     int face;
     int adjusted_y;
+    //游戏胜利结算
+    int health;
+    int remaining_lives;
+    int kill_count;
+    bool is_living;
 };
 
 #endif // PLAYER_H

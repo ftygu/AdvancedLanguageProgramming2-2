@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>resource/cloud_1.png</file>
         <file>resource/akm.png</file>
+        <file>resource/M4.png</file>
     </qresource>
 </RCC>
