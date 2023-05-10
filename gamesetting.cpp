@@ -2,7 +2,7 @@
 #include<QKeyEvent>
 #include"plate.h"
 GameSetting::GameSetting() :
-    plates_num(0),Players_num(0)
+    plates_num(0),players_num(0)
 {
         players_keybindings[0][0] = Qt::Key_W;
         players_keybindings[0][1] = Qt::Key_S;
@@ -38,7 +38,17 @@ GameSetting::GameSetting() :
 
 void GameSetting::load_plate_test()
 {
-    plates_num = 5;
-    for(int i = 1; i < plates_num; i++){
-    }
+    plates_num = 3;
+    plates[0].position.setX(-400);
+    plates[0].position.setY(50);
+    plates[0].width = 800;
+    plates[0].height = 20;
+    plates[1].position.setX(-900);
+    plates[1].position.setY(150);
+    plates[1].width = 1800;
+    plates[1].height = 20;
+    plates[2].position.setX(-960);
+    plates[2].position.setY(250);
+    plates[2].width = 1920;
+    plates[2].height = 20;
 }

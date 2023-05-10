@@ -1,7 +1,6 @@
 #include "gamepreparationinterface.h"
 #include "ui_gamepreparationinterface.h"
 #include"stackedwidgets.h"
-
 GamePreparationInterface::GamePreparationInterface(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GamePreparationInterface)
@@ -31,11 +30,11 @@ void GamePreparationInterface::on_pushButton_2_clicked()
 void GamePreparationInterface::on_checkBox_stateChanged(int arg1)
 {
     if(arg1 == Qt::Checked){
-        game_setting->Players_num++;
+        game_setting->players_num++;
         game_setting->players[0].is_apperaed = true;
     }
     else{
-        game_setting->Players_num--;
+        game_setting->players_num--;
         game_setting->players[0].is_apperaed = false;
     }
 }
@@ -43,11 +42,11 @@ void GamePreparationInterface::on_checkBox_stateChanged(int arg1)
 void GamePreparationInterface::on_checkBox_2_stateChanged(int arg1)
 {
     if(arg1 == Qt::Checked){
-        game_setting->Players_num++;
+        game_setting->players_num++;
         game_setting->players[1].is_apperaed = true;
     }
     else{
-        game_setting->Players_num--;
+        game_setting->players_num--;
         game_setting->players[1].is_apperaed = false;
     }
 }
@@ -55,11 +54,11 @@ void GamePreparationInterface::on_checkBox_2_stateChanged(int arg1)
 void GamePreparationInterface::on_checkBox_3_stateChanged(int arg1)
 {
     if(arg1 == Qt::Checked){
-        game_setting->Players_num++;
+        game_setting->players_num++;
         game_setting->players[2].is_apperaed = true;
     }
     else{
-        game_setting->Players_num--;
+        game_setting->players_num--;
         game_setting->players[2].is_apperaed = false;
     }
 }
@@ -67,11 +66,11 @@ void GamePreparationInterface::on_checkBox_3_stateChanged(int arg1)
 void GamePreparationInterface::on_checkBox_4_stateChanged(int arg1)
 {
     if(arg1 == Qt::Checked){
-        game_setting->Players_num++;
+        game_setting->players_num++;
         game_setting->players[3].is_apperaed = true;
     }
     else{
-        game_setting->Players_num--;
+        game_setting->players_num--;
         game_setting->players[3].is_apperaed = false;
     }
 }
