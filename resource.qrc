@@ -14,5 +14,8 @@
         <file>resource/cloud_5.png</file>
         <file>resource/cloud_6.png</file>
         <file>resource/cloud_7.png</file>
+        <file>resource/shoot.wav</file>
+        <file>resource/reload.wav</file>
+        <file>resource/shooted.wav</file>
     </qresource>
 </RCC>

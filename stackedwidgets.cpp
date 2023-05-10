@@ -12,6 +12,7 @@ StackedWidgets::StackedWidgets():
     this->addWidget(&this->gpi);
     this->addWidget(&game.view);
     this->setFixedSize(1920,1080);
+    setWindowFlags(Qt::FramelessWindowHint);
     //显示主菜单
     this->setCurrentIndex(0);
 }

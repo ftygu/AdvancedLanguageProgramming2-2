@@ -6,6 +6,7 @@
 #include<QDebug>
 Player::Player() :
     width(30),height(54),position(0,0)
+  ,sound1(":/resource/shoot.wav"),sound2("://resource/reload.wav"),sound3("://resource/shooted.wav")
 {
     is_apperaed = false;
     for(int i = 0; i < 6; i++){
@@ -150,11 +151,11 @@ void Player::update_game()
             health = 100;
         }
         //沿x轴移动的计算
-        if (key_pressed[2] == true) {
+        if (key_pressed[2] == true && vx >= -8) {
             ax -= 0.5f;
             face = -1;
         }
-        if (key_pressed[3] == true) {
+        if (key_pressed[3] == true && vx <= 8) {
             ax += 0.5f;
             face = 1;
         }
@@ -171,7 +172,6 @@ void Player::update_game()
         if (vx > -0.2f && vx < 0.2f) {
             vx = 0;
         }
-        vx = std::min(std::max(vx, -8.0f), 8.0f);
         x += vx;
         position.setX(x);
         ax = 0.0f;

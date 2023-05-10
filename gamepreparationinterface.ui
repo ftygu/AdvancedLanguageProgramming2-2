@@ -6,216 +6,368 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>768</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>320</y>
-     <width>251</width>
-     <height>101</height>
+     <x>634</x>
+     <y>660</y>
+     <width>652</width>
+     <height>270</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial Black</family>
+     <pointsize>28</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>Start</string>
+    <string>开始</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>75</width>
-     <height>23</height>
+     <x>0</x>
+     <y>0</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>返回主菜单</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>130</y>
-     <width>81</width>
-     <height>16</height>
+     <x>200</x>
+     <y>70</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>CheckBox</string>
+    <string>玩家1</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBox_2">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>120</y>
-     <width>101</width>
-     <height>21</height>
+     <x>634</x>
+     <y>70</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>CheckBox</string>
+    <string>玩家2</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBox_3">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>100</y>
-     <width>81</width>
-     <height>51</height>
+     <x>1068</x>
+     <y>70</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>CheckBox</string>
+    <string>玩家3</string>
    </property>
   </widget>
   <widget class="QCheckBox" name="checkBox_4">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>100</y>
-     <width>131</width>
-     <height>31</height>
+     <x>1503</x>
+     <y>70</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>CheckBox</string>
+    <string>玩家4</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>290</y>
-     <width>171</width>
-     <height>41</height>
+     <x>200</x>
+     <y>560</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>地图1</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>190</y>
-     <width>75</width>
-     <height>23</height>
+     <x>200</x>
+     <y>270</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>身体颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>160</y>
-     <width>75</width>
-     <height>23</height>
+     <x>200</x>
+     <y>170</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>头部颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>150</y>
-     <width>75</width>
-     <height>23</height>
+     <x>634</x>
+     <y>170</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>头部颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_7">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>190</y>
-     <width>75</width>
-     <height>23</height>
+     <x>634</x>
+     <y>270</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>身体颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_8">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>150</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1068</x>
+     <y>170</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>头部颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_9">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>190</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1068</x>
+     <y>270</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>身体颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_10">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>150</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1503</x>
+     <y>170</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>头部颜色</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_11">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>190</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1503</x>
+     <y>270</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>身体颜色</string>
    </property>
   </widget>
   <widget class="QSpinBox" name="spinBox">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>480</y>
-     <width>101</width>
-     <height>51</height>
+     <x>1530</x>
+     <y>760</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
    </property>
    <property name="value">
     <number>1</number>
@@ -224,105 +376,199 @@
   <widget class="QPushButton" name="pushButton_12">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>230</y>
-     <width>75</width>
-     <height>23</height>
+     <x>200</x>
+     <y>370</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>武器</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_13">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>220</y>
-     <width>75</width>
-     <height>23</height>
+     <x>634</x>
+     <y>370</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>武器</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_14">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>240</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1068</x>
+     <y>370</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>武器</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_15">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>240</y>
-     <width>75</width>
-     <height>23</height>
+     <x>1503</x>
+     <y>370</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>武器</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_16">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>340</y>
-     <width>171</width>
-     <height>41</height>
+     <x>200</x>
+     <y>660</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>地图2</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_17">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>390</y>
-     <width>151</width>
-     <height>41</height>
+     <x>200</x>
+     <y>760</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>地图3</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_18">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>440</y>
-     <width>141</width>
-     <height>51</height>
+     <x>200</x>
+     <y>860</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>地图4</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_19">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>500</y>
-     <width>75</width>
-     <height>23</height>
+     <x>200</x>
+     <y>960</y>
+     <width>217</width>
+     <height>70</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>地图5</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>1530</x>
+     <y>695</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string>生命数</string>
    </property>
   </widget>
  </widget>

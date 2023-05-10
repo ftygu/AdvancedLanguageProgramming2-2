@@ -4,11 +4,15 @@
 #include<QPoint>
 #include<weapon.h>
 #include<bullet.h>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include<QSound>
 class Plate;
 class Player : public QGraphicsItem
 {
 public:
     Player();
+    QSound sound1,sound2,sound3;
     int *keybindings;
     Plate *plates;
     int plates_num;

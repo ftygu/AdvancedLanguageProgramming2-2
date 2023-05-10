@@ -10,33 +10,42 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>游戏选项</string>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>80</y>
-     <width>75</width>
-     <height>23</height>
+     <x>100</x>
+     <y>33</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>继续游戏</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>140</y>
-     <width>75</width>
-     <height>23</height>
+     <x>100</x>
+     <y>167</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>CrossCursor</cursorShape>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>返回主界面</string>
    </property>
   </widget>
  </widget>

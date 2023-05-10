@@ -57,6 +57,7 @@ void Bullet::action(Player *player)
     player->health -= damage;
     is_existing = false;
     is_hitting = true;
+    player->sound3.play();
 }
 
 QRectF Bullet::boundingRect() const

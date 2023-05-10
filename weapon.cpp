@@ -3,6 +3,7 @@
 #include<qpainter.h>
 #include<QtDebug>
 #include<QString>
+#include<QSound>
 Weapon::Weapon()
 {
 
@@ -19,6 +20,7 @@ void Weapon::update()
     if(existing_bullets_num <= 0){
         time_to_reloading = reloading_time;
         existing_bullets_num = bullet_num;
+        user->sound2.play();
     }
 }
 
@@ -40,6 +42,7 @@ void Weapon::shoot()
                 user->bullets[i].is_gravity = false;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num--;
+                user->ax += bullet_impact_force/4*-user->face;
                 break;
             }
         }
@@ -140,6 +143,7 @@ void Akm::special_shoot()
                 user->bullets[i].is_gravity = false;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num--;
+                user->ax += bullet_impact_force/4*-user->face;
                 break;
             }
         }
@@ -189,6 +193,7 @@ void M4::special_shoot()
                 user->bullets[i].is_gravity = true;
                 time_to_shooting = shooting_interval;
                 existing_bullets_num -= 5;
+                user->ax += bullet_impact_force*-user->face;
                 break;
             }
         }
@@ -199,8 +204,8 @@ Awm::Awm()
 {
     bullet_num = 5;
     bullet_speed = 25;
-    bullet_impact_force = 44;
-    bullet_damage = 44;
+    bullet_impact_force = 32;
+    bullet_damage = 32;
     bullet_existing_time = -1;
     bullet_width = 30;
     bullet_height = 3;
@@ -240,6 +245,8 @@ void Awm::special_shoot()
                     user->bullets[i].is_gravity = false;
                     time_to_shooting = shooting_interval;
                     existing_bullets_num-=2;
+                    user->sound1.play();
+                    user->ax += bullet_impact_force/4*-user->face;
                     break;
                 }
             }
@@ -254,8 +261,8 @@ Ump45::Ump45()
 {
     bullet_num = 45;
     bullet_speed = 13;
-    bullet_impact_force = 7;
-    bullet_damage = 7;
+    bullet_impact_force = 6;
+    bullet_damage = 6;
     bullet_existing_time = -1;
     bullet_width = 10;
     bullet_height = 3;
@@ -286,8 +293,8 @@ sawed_off::sawed_off()
 {
     bullet_num = 5;
     bullet_speed = 25;
-    bullet_impact_force = 60;
-    bullet_damage = 60;
+    bullet_impact_force = 32;
+    bullet_damage = 32;
     bullet_existing_time = 5;
     bullet_width = 20;
     bullet_height = 5;
@@ -327,6 +334,8 @@ void sawed_off::special_shoot()
                     user->bullets[i].is_gravity = false;
                     time_to_shooting = shooting_interval;
                     existing_bullets_num-=3;
+                    user->sound1.play();
+                    user->ax += bullet_impact_force/4*-user->face;
                     break;
                 }
             }
