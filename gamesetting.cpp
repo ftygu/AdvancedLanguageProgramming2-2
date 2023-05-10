@@ -1,6 +1,8 @@
 #include "gamesetting.h"
 #include<QKeyEvent>
 #include"plate.h"
+#include"bullet.h"
+#include<QtDebug>
 GameSetting::GameSetting() :
     plates_num(0),players_num(0)
 {
@@ -34,21 +36,57 @@ GameSetting::GameSetting() :
 
         players = new Player[4];
         plates = new Plate[20];
+        player1_bullets = new Bullet[100];
+        player2_bullets = new Bullet[100];
+        player3_bullets = new Bullet[100];
+        player4_bullets = new Bullet[100];
+        players[0].bullets = player1_bullets;
+        players[1].bullets = player2_bullets;
+        players[2].bullets = player3_bullets;
+        players[3].bullets = player4_bullets;
 }
 
 void GameSetting::load_plate_test()
 {
-    plates_num = 3;
-    plates[0].position.setX(-400);
-    plates[0].position.setY(50);
-    plates[0].width = 800;
-    plates[0].height = 20;
-    plates[1].position.setX(-900);
-    plates[1].position.setY(150);
-    plates[1].width = 1800;
-    plates[1].height = 20;
-    plates[2].position.setX(-960);
-    plates[2].position.setY(250);
-    plates[2].width = 1920;
-    plates[2].height = 20;
+    plates_num = 5;
+
+        plates[0].position.setX(-890);
+        plates[0].position.setY(-200);
+        plates[0].width = 285;
+        plates[0].height = 100;
+        plates[0].pixture.load("://resource/cloud_1.png");
+        plates[0].pix_width = 0;
+        plates[0].pix_height = 70;
+
+        plates[1].position.setX(-166);
+        plates[1].position.setY(-200);
+        plates[1].width = 285;
+        plates[1].height = 100;
+        plates[1].pixture.load("://resource/cloud_1.png");
+        plates[1].pix_width = 0;
+        plates[1].pix_height = 70;
+
+        plates[2].position.setX(563);
+        plates[2].position.setY(-200);
+        plates[2].width = 285;
+        plates[2].height = 100;
+        plates[2].pixture.load("://resource/cloud_1.png");
+        plates[2].pix_width = 0;
+        plates[2].pix_height = 70;
+
+        plates[3].position.setX(-563);
+        plates[3].position.setY(0);
+        plates[3].width = 285;
+        plates[3].height = 100;
+        plates[3].pixture.load("://resource/cloud_1.png");
+        plates[3].pix_width = 0;
+        plates[3].pix_height = 70;
+
+        plates[4].position.setX(166);
+        plates[4].position.setY(0);
+        plates[4].width = 285;
+        plates[4].height = 100;
+        plates[4].pixture.load("://resource/cloud_1.png");
+        plates[4].pix_width = 0;
+        plates[4].pix_height = 70;
 }

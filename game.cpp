@@ -20,6 +20,26 @@ void Game::update_game()
     for(int i = 0; i < 4; i++){
         if(players[i].is_apperaed == true)
             players[i].update_game();
+            for (int j = 0; j < 100; j++) {
+                players[i].bullets[j].update();
+            }
+            for(int j = 0; j < 4; j++){
+                if(j != i){
+                for(int k = 0; k < 100; k++){
+                    if(players[j].is_apperaed == true && players[j].bullets[k].is_appear == true){
+                        if(players[i].collidesWithItem(&players[j].bullets[k])){
+                            if(players[j].bullets[k].vx > 0)
+                            players[i].ax += players[j].bullets[k].bullet_impact_force;
+                            else{
+                            players[i].ax -= players[j].bullets[k].bullet_impact_force;
+                            }
+                             players[j].bullets[k].is_appear = false;
+                        }
+                    }
+                }
+                }
+            }
+
         }
     scene.update();
     /*
@@ -55,6 +75,9 @@ void Game::start()
             players[i].plates = game_setting->plates;
             players[i].plates_num = game_setting->plates_num;
             this->scene.addItem(&players[i]);
+            for(int j = 0; j < 100; j++){
+                this->scene.addItem(&players[i].bullets[j]);
+            }
         }
     }
     for(int i = 0; i < plates_num; i++){
@@ -74,7 +97,6 @@ void Game::handleKeyPressEvent(QKeyEvent* event)
         if(players[i].is_apperaed == true)
             players[i].keyPressEvent(event);
         }
-        // 如果有其他对象需要处理键盘事件，也在这里调用它们的 keyPressEvent 方法。
 }
 
 void Game::handleKeyReleaseEvent(QKeyEvent* event)
@@ -83,5 +105,4 @@ void Game::handleKeyReleaseEvent(QKeyEvent* event)
         if(players[i].is_apperaed == true)
             players[i].keyReleaseEvent(event);
         }
-    // 如果有其他对象需要处理键盘事件，也在这里调用它们的 keyReleaseEvent 方法。
 }

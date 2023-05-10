@@ -2,6 +2,8 @@
 #define PLAYER_H
 #include<QGraphicsItem>
 #include<QPoint>
+#include<weapon.h>
+#include<bullet.h>
 class Plate;
 class Player : public QGraphicsItem
 {
@@ -16,7 +18,7 @@ public:
     bool have_jumped;
     float x, y, vx, vy, ax, ay;
     bool key_pressed[6];
-    int on_ground;/* 0为在地面上 1为在空中 2为卡在地面中 */
+    int on_ground;
     bool is_apperaed;
     int ground_height;
     int jump_time,max_junp_time;
@@ -28,6 +30,12 @@ public:
     void keyReleaseEvent(QKeyEvent *event) override;
     void update_game();
     void print_position();
+    //射击
+    Bullet *bullets;
+    int direction;
+    int shooting_interval;
+    int reload_time;
+    int now_time;
 };
 
 #endif // PLAYER_H

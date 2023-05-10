@@ -23,7 +23,7 @@ public:
     Plate *plates;
     //玩家和地形的数量
     int plates_num,players_num;
-    //刷新器
+    //刷新
     QTimer timer;
     //所有玩家的平均坐标
     double x,y;

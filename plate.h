@@ -10,6 +10,9 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget*widget) override;
     QPoint position;
+    QPixmap pixture;
+    int pix_height,pix_width;
+    bool test_mode;
     int width,height;
 };
 

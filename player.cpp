@@ -15,6 +15,9 @@ Player::Player() :
     have_jumped = false;
     want_down = false;
     want_down_counter = 0;
+    shooting_interval = 20;
+    now_time = 0;
+    setZValue(1);
 }
 
 QRectF Player::boundingRect() const
@@ -48,6 +51,7 @@ void Player::keyReleaseEvent(QKeyEvent *event)
 
 void Player::update_game()
 {
+
     //沿x轴移动的计算
     if (key_pressed[2] == true) {
         ax -= 0.5f;
@@ -74,7 +78,6 @@ void Player::update_game()
     ax = 0.0f;
 
     //沿y轴移动的计算
-    //判断是否在地面上
     if(want_down_counter >= 15){
         want_down = false;
         want_down_counter = 0;
@@ -89,9 +92,7 @@ void Player::update_game()
     }
     on_ground = 0;
     for (int i = 0; i < plates_num; i++) {
-        qDebug() << i;
         if (x + width >= plates[i].position.x() && x <= plates[i].position.x() + plates[i].width) {
-            qDebug() << "x";
             if (y + height >= plates[i].position.y() && y <= plates[i].position.y()) {
                 if(vy >= 0 && want_down == false){
                     y = plates[i].position.y() - height;
@@ -109,7 +110,7 @@ void Player::update_game()
     if(jump_time < max_junp_time){
         if(key_pressed[0] == true){
             if(have_jumped == false){
-                ay -= 8.0f;
+                vy = -8.0f;
                 jump_time++;
                 have_jumped = true;
             }
@@ -126,6 +127,41 @@ void Player::update_game()
     y += vy;
     position.setY(y);
     ay = 0.0f;
+
+    //超出场景的判断
+    if(y >=810){
+        x = 0;
+        y = -600;
+    }
+
+    //射击的判断
+    if(key_pressed[2] == true){
+        direction = 0;
+    }
+    if(key_pressed[3] == true){
+        direction = 1;
+    }
+    if(key_pressed[4] == true && now_time <= 0){
+        for(int i = 0; i < 100; i++){
+            if(bullets[i].is_appear == false){
+                bullets[i].x = x;
+                bullets[i].y = y;
+                if(direction == 0){
+                    bullets[i].vx = -10;
+                }
+                else{
+                    bullets[i].vx = 10;
+                }
+                bullets[i].is_appear = true;
+                now_time = shooting_interval;
+                break;
+            }
+        }
+    }
+    else{
+        if(now_time > 0)
+        now_time--;
+    }
 }
 
 

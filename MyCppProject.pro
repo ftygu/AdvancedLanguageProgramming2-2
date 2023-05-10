@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bullet.cpp \
     customgraphicsview.cpp \
     game.cpp \
     gamepreparationinterface.cpp \
@@ -25,9 +26,11 @@ SOURCES += \
     plate.cpp \
     player.cpp \
     settinginterface.cpp \
-    stackedwidgets.cpp
+    stackedwidgets.cpp \
+    weapon.cpp
 
 HEADERS += \
+    bullet.h \
     customgraphicsview.h \
     game.h \
     gamepreparationinterface.h \
@@ -36,7 +39,8 @@ HEADERS += \
     plate.h \
     player.h \
     settinginterface.h \
-    stackedwidgets.h
+    stackedwidgets.h \
+    weapon.h
 
 FORMS += \
     gamepreparationinterface.ui \
@@ -47,3 +51,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

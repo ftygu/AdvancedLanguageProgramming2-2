@@ -9,6 +9,7 @@ public:
     int players_keybindings [4][6]; 
     Plate *plates;
     Player *players;
+    Bullet *player1_bullets, *player2_bullets, *player3_bullets, *player4_bullets;
     int plates_num,players_num;
     void load_plate_test();
 };
