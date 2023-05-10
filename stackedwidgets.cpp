@@ -3,7 +3,7 @@
 #include"QGraphicsView"
 StackedWidgets::StackedWidgets():
     game_setting(),
-    game(&game_setting),
+    game(&game_setting,this),
     mui(this),sti(this,&this->game_setting),gpi(this)
 {
     //将所有界面均添加至主界面

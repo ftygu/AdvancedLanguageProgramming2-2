@@ -48,6 +48,10 @@ private slots:
 
     void on_pushButton_11_clicked();
 
+    void on_spinBox_valueChanged(int arg1);
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::GamePreparationInterface *ui;
     //用于修改地图，角色等属性

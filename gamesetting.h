@@ -12,7 +12,7 @@ public:
     Player *players;
     Bullet *player1_bullets, *player2_bullets, *player3_bullets, *player4_bullets;
     Weapon *player1_weapen, *player2_weapen, *player3_weapen, *player4_weapen;
-    int plates_num,players_num;
+    int plates_num,players_num,lives_num;
     void load_plate_test();
 };
 

@@ -6,19 +6,24 @@
 #include<QTimer>
 #include"player.h"
 #include"plate.h"
+#include"dialog1.h"
+class StackedWidgets;
 class GameSetting;
 class Game : public QObject
 {
     Q_OBJECT
 public:
-    Game(GameSetting *game_setting);
+    Game(GameSetting *game_setting,StackedWidgets *stackedwidgets);
     GameSetting *game_setting;
+    StackedWidgets *stackedwidgets;
     //游戏场景
     QGraphicsScene scene;
     //游戏视角
     CustomGraphicsView view;
+    Dialog1 dialog;
     //玩家指针
     Player *players;
+    Player *last_live_player;
     //地形指针
     Plate *plates;
     //玩家和地形的数量
@@ -38,6 +43,8 @@ public slots:
     void start();
     //游戏停止
     void stop();
+    void pause_game();
+    void continue_game();
     //分发键盘事件
     void handleKeyPressEvent(QKeyEvent* event);
     void handleKeyReleaseEvent(QKeyEvent* event);

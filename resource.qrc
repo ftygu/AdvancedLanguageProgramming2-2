@@ -3,5 +3,9 @@
         <file>resource/cloud_1.png</file>
         <file>resource/akm.png</file>
         <file>resource/M4.png</file>
+        <file>resource/fire.png</file>
+        <file>resource/ump45.png</file>
+        <file>resource/awm.png</file>
+        <file>resource/sawed_off.png</file>
     </qresource>
 </RCC>

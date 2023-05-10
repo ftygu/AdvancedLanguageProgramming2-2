@@ -2,6 +2,7 @@
 #include "ui_gamepreparationinterface.h"
 #include"stackedwidgets.h"
 #include"dialog.h"
+#include"dialog2.h"
 GamePreparationInterface::GamePreparationInterface(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GamePreparationInterface)
@@ -126,5 +127,16 @@ void GamePreparationInterface::on_pushButton_10_clicked()
 void GamePreparationInterface::on_pushButton_11_clicked()
 {
     Dialog dialog(&game_setting->players[3].body_color,this);
+    dialog.exec();
+}
+
+void GamePreparationInterface::on_spinBox_valueChanged(int arg1)
+{
+    game_setting->lives_num = arg1;
+}
+
+void GamePreparationInterface::on_pushButton_12_clicked()
+{
+    Dialog2 dialog(&game_setting->player1_weapen,&game_setting->players[0],this);
     dialog.exec();
 }

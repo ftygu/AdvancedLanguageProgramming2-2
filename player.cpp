@@ -24,6 +24,7 @@ Player::Player() :
     kill_count = 0;
     timer = 30;
     is_living = true;
+    is_winner = false;
 }
 
 QRectF Player::boundingRect() const
@@ -249,6 +250,26 @@ void Player::update_game()
         abs_time = abs(timer - 30);
         adjusted_y = -abs_time / 10;
     }
+}
+
+void Player::initialization(int lives_num)
+{
+    x = 0;
+    y = - 600;
+    vx = 0;
+    vy = 0;
+    health = 100;
+    remaining_lives = lives_num;
+    jump_time = 0;
+    max_junp_time = 2;
+    is_living = true;
+    is_winner = false;
+    have_jumped = false;
+    want_down = false;
+    for(int i = 0; i < 6; i++){
+        key_pressed[i] = false;
+    }
+    face = 1;
 }
 
 

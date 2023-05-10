@@ -29,6 +29,7 @@ public:
     void keyReleaseEvent(QKeyEvent *event) override;
     void update_game();
     void print_position();
+    void initialization(int lives_num);
     //射击
     Bullet *bullets;
     Weapon *weapen;
@@ -44,6 +45,7 @@ public:
     int remaining_lives;
     int kill_count;
     bool is_living;
+    bool is_winner;
 };
 
 #endif // PLAYER_H

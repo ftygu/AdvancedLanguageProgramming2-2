@@ -19,6 +19,8 @@ SOURCES += \
     bullet.cpp \
     customgraphicsview.cpp \
     dialog.cpp \
+    dialog1.cpp \
+    dialog2.cpp \
     game.cpp \
     gamepreparationinterface.cpp \
     gamesetting.cpp \
@@ -34,6 +36,8 @@ HEADERS += \
     bullet.h \
     customgraphicsview.h \
     dialog.h \
+    dialog1.h \
+    dialog2.h \
     game.h \
     gamepreparationinterface.h \
     gamesetting.h \
@@ -46,6 +50,8 @@ HEADERS += \
 
 FORMS += \
     dialog.ui \
+    dialog1.ui \
+    dialog2.ui \
     gamepreparationinterface.ui \
     menuinterface.ui \
     settinginterface.ui

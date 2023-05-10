@@ -56,6 +56,7 @@ GameSetting::GameSetting() :
         players[1].weapen = player2_weapen;
         players[2].weapen = player3_weapen;
         players[3].weapen = player4_weapen;
+        lives_num = 1;
 }
 
 void GameSetting::load_plate_test()

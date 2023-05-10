@@ -11,6 +11,7 @@ public:
     virtual void special_shoot();
     void paint(QPainter *painter);
     QPixmap pixture;
+    QPixmap fire;
     Player *user;
     int bullet_num;
     int bullet_speed;
@@ -24,7 +25,7 @@ public:
     int time_to_reloading;
     int existing_bullets_num;
     int dx,dy;
-    int hx1,hx2,hy1,hy2;
+    int hx1,hx2,hy1,hy2,fx,fy;
 };
 class Akm : public Weapon{
 public:
@@ -36,5 +37,20 @@ public:
     M4();
     void special_shoot() override;
 };
-
+class Awm : public Weapon{
+public:
+    Awm();
+    void special_shoot() override;
+};
+class Ump45 : public Weapon{
+public:
+    Ump45();
+    int counter;
+    void special_shoot() override;
+};
+class sawed_off : public Weapon{
+public:
+    sawed_off();
+    void special_shoot() override;
+};
 #endif // WEAPON_H
