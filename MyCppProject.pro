@@ -16,7 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    customgraphicsscene.cpp \
+    customgraphicsview.cpp \
     game.cpp \
     gamepreparationinterface.cpp \
     gamesetting.cpp \
@@ -28,7 +28,7 @@ SOURCES += \
     stackedwidgets.cpp
 
 HEADERS += \
-    customgraphicsscene.h \
+    customgraphicsview.h \
     game.h \
     gamepreparationinterface.h \
     gamesetting.h \

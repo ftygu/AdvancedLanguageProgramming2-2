@@ -7,19 +7,19 @@ class Player : public QGraphicsItem
 public:
     Player();
     QColor color;
-    QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget*widget) override;
     int *keybindings;
-    void keyPressEvent(QKeyEvent *event) override;
-    void keyReleaseEvent(QKeyEvent *event) override;
     QPoint position;
     int width,height;
-    int vx,vy;
-    int ax,ay;
-    void update_game();
+    int vx,vy,ax,ay;
     bool key_pressed[6];
     bool on_ground;
+    bool is_apperaed;
     int ground_height;
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget*widget) override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
+    void update_game();
     void print_position();
 };
 

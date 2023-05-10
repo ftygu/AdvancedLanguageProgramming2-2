@@ -32,4 +32,5 @@ GameSetting::GameSetting() :
         players_keybindings[3][4] = Qt::Key_Slash;
         players_keybindings[3][5] = Qt::Key_Minus;
 
+        players = new Player[4];
 }

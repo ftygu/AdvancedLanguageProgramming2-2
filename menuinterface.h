@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::MenuInterface *ui;
+    //父对象指针，便于进行窗口切换
     StackedWidgets *stacked_widgets;
 };
 

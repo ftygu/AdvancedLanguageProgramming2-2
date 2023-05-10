@@ -4,11 +4,10 @@
 Player::Player() :
     width(20),height(20),position(20,20)
 {
+    is_apperaed = false;
     for(int i = 0; i < 6; i++){
         key_pressed[i] = false;
     }
-    setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
 }
 
 QRectF Player::boundingRect() const

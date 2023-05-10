@@ -1,7 +1,6 @@
 #include "game.h"
-#include"player.h"
 #include"gamesetting.h"
-#include<QTimer>
+#include <QKeyEvent>
 Game::Game(GameSetting *game_setting) :
     game_setting(game_setting)
 {
@@ -9,25 +8,16 @@ Game::Game(GameSetting *game_setting) :
     scene.setSceneRect(0, 0, 2000, 2000);
     timer.setInterval(16);
     QObject::connect(&timer,SIGNAL(timeout()),this,SLOT(update_game()));
-    QObject::connect(&scene, &CustomGraphicsScene::keyPressed, this, &Game::handleKeyPressEvent);
-    QObject::connect(&scene, &CustomGraphicsScene::keyReleased, this, &Game::handleKeyReleaseEvent);
-    players_num = 2;
-    plates_num = 1;
-    players = new Player[4]; // 为玩家数组分配内存
-    plates = new Plate[plates_num]; // 为 Plate 数组分配内存
-    for(int i = 0; i < players_num; i++){
-            players[i].keybindings = game_setting->players_keybindings[i];
-            this->scene.addItem(&players[i]);
-        }
-
-        for(int i = 0; i < plates_num; i++){
-            this->scene.addItem(&plates[i]);
-        }
+    QObject::connect(&view, &CustomGraphicsView::keyPressed, this, &Game::handleKeyPressEvent);
+    QObject::connect(&view, &CustomGraphicsView::keyReleased, this, &Game::handleKeyReleaseEvent);
+    players = game_setting->players;
+    plates_num = 0;
 }
 
 void Game::update_game()
 {
-    for(int i = 0; i < players_num; i++){
+    for(int i = 0; i < 4; i++){
+        if(players[i].is_apperaed == true)
             players[i].update_game();
         }
         scene.update();
@@ -35,6 +25,15 @@ void Game::update_game()
 
 void Game::start()
 {
+    for(int i = 0; i < 4; i++){
+        if(players[i].is_apperaed == true){
+            players[i].keybindings = game_setting->players_keybindings[i];
+            this->scene.addItem(&players[i]);
+        }
+    }
+    for(int i = 0; i < plates_num; i++){
+        this->scene.addItem(&plates[i]);
+    }
     timer.start();
 }
 
@@ -45,7 +44,8 @@ void Game::stop()
 
 void Game::handleKeyPressEvent(QKeyEvent* event)
 {
-    for(int i = 0; i < players_num; i++){
+    for(int i = 0; i < 4; i++){
+        if(players[i].is_apperaed == true)
             players[i].keyPressEvent(event);
         }
         // 如果有其他对象需要处理键盘事件，也在这里调用它们的 keyPressEvent 方法。
@@ -53,7 +53,8 @@ void Game::handleKeyPressEvent(QKeyEvent* event)
 
 void Game::handleKeyReleaseEvent(QKeyEvent* event)
 {
-    for(int i = 0; i < players_num; i++){
+    for(int i = 0; i < 4; i++){
+        if(players[i].is_apperaed == true)
             players[i].keyReleaseEvent(event);
         }
     // 如果有其他对象需要处理键盘事件，也在这里调用它们的 keyReleaseEvent 方法。
