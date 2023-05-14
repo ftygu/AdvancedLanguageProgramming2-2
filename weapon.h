@@ -45,7 +45,6 @@ public:
 class Ump45 : public Weapon{
 public:
     Ump45();
-    int counter;
     void special_shoot() override;
 };
 class sawed_off : public Weapon{
